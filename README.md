@@ -6,4 +6,5 @@
 + Aby uruchomić Cypressa uyj komendy "npx cypress open"
 + Po uruchomieniu wybierz opcję "E2E Testing" a następnie przeglądarkę, w której chcesz otworzyć projekt.
 + Następnie w folderze specs znajdź porządany plik;
-    - Praca domowa 1 - "login.cy.js"
+    - Praca domowa 2 - "login.cy.js"
+    - Praca domowa 4 - "httpAPI.cy.js"
