@@ -1,4 +1,4 @@
-import { Login } from "..pages/old_Login";
+import { Login } from "..pages/Login";
 
 const loginPage = new Login();
 
