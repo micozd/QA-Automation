@@ -1,0 +1,33 @@
+config:
+  target: "https://api.open5e.com/"
+  phases:
+    - duration: 5
+      arrivalRate: 2
+      name: "DnD Test"
+  plugins:
+    ensure:
+      thresholds:
+        - http.response_time.p95: 10
+        - http.response_time.max: 5000
+      conditions:
+        - expression: vusers.failed == 0
+        - expression: "http.request_rate >= 2 and http.response_time.max < 600"
+
+scenarios:
+  - name: "Get Classes"
+    flow:
+      - get:
+          url: "{{ target }}v1/classes/"
+      - post:
+          url: "{{ target }}new/character/"
+          json:
+            username: "myUsername"
+            password: "myPassword"
+
+payload:
+  path: './data.json'
+
+hooks:
+  beforeRequest:
+    - file: "./data.json"
+          
